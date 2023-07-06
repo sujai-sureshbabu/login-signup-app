@@ -12,13 +12,16 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import { FacebookLoginButton , GoogleLoginButton ,LinkedInLoginButton } from "react-social-login-buttons";
+
 
 function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="#">
+        Name
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -33,11 +36,15 @@ export default function SignUp() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    //TODO
+    //API call for Signup 
     console.log({
       email: data.get('email'),
       password: data.get('password'),
     });
   };
+
+
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -123,6 +130,12 @@ export default function SignUp() {
                 </Link>
               </Grid>
             </Grid>
+            <br/>
+           <ButtonGroup orientation="vertical" fullWidth variant="contained" aria-label="outlined primary button group">
+           <GoogleLoginButton onClick={() => alert("Hello")} />
+            <FacebookLoginButton onClick={() => alert("Hello")} />
+            <LinkedInLoginButton onClick={() => alert("Hello")} />            
+          </ButtonGroup>
           </Box>
         </Box>
         <Copyright sx={{ mt: 5 }} />
