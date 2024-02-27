@@ -14,7 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { FacebookLoginButton , GoogleLoginButton ,LinkedInLoginButton } from "react-social-login-buttons";
-
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props: any) {
   return (
@@ -29,10 +29,11 @@ function Copyright(props: any) {
   );
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
+
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -42,6 +43,8 @@ export default function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
     });
+    navigate("/home")
+
   };
 
 
@@ -125,14 +128,15 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
             </Grid>
             <br/>
            <ButtonGroup orientation="vertical" fullWidth variant="contained" aria-label="outlined primary button group">
-           <GoogleLoginButton onClick={() => alert("Hello")} />
+            
+            <GoogleLoginButton onClick={() => alert("Hello")} />
             <FacebookLoginButton onClick={() => alert("Hello")} />
             <LinkedInLoginButton onClick={() => alert("Hello")} />            
           </ButtonGroup>
