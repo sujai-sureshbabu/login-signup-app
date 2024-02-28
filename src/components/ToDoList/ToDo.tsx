@@ -12,7 +12,8 @@ export function Tasks (props: IAppProps) {
   const[todo, setToDo] = useState<string>();
 
   return (
-    <div>
+    <div style={{border:"thin ", backgroundColor: "white"}}>
+<br/>
       <TextField fullWidth label="To do items" id="fullWidth" />
       <br/><br/>
       <Button variant="outlined" color="primary">
