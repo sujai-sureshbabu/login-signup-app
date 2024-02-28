@@ -14,6 +14,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+import Paper from '@mui/material/Paper';
 // export interface IUserCredentialsProps {
 //     emailAddress : string | number
 //     password : string | number 
@@ -29,9 +30,26 @@ const Login = () => {
     navigate("/home")
   };
 
+
+
   return (
     <>
-      <Container maxWidth="xs">
+    <br/><br/>
+    <Box
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > :not(style)': {
+          m: 1,
+          width: 100,
+          height: 100,
+        },
+      }}
+    >
+      
+      
+    </Box>
+      <Container maxWidth="xs" style={{border:"thin ", backgroundColor: "white"}}>
         <CssBaseline />
         <Box
           sx={{
@@ -41,9 +59,12 @@ const Login = () => {
             alignItems: "center",
           }}
         >
+
+
           <Avatar sx={{ m: 1, bgcolor: "primary.light" }}>
             <LockOutlined />
           </Avatar>
+          
           <Typography variant="h5">Login</Typography>
           <Box sx={{ mt: 1 }}>
             <TextField
@@ -67,7 +88,7 @@ const Login = () => {
               label="Password"
               type="password"
               value={password}
-              onChange={(e) => { setPassword(e.target.value);}}
+              onChange={(e) => { setPassword(e.target.value); }}
             />
 
             <Button
@@ -86,8 +107,11 @@ const Login = () => {
           </Box>
         </Box>
       </Container>
+      
     </>
   );
 };
 
 export default Login;
+
+
